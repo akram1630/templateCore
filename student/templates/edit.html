@@ -1,0 +1,13 @@
+<!-- name of folder must be 'templates'
+  to recognize it as a template folder -->
+
+{%extends 'base.html'%}
+
+{% block content %}
+<h1>template edit student</h1>
+
+<a href="{% url 'student:allStudents' %}">
+  All Student 
+</a>
+{% endblock%}
+

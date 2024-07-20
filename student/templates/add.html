@@ -1,0 +1,21 @@
+<!-- name of folder must be 'templates'
+  to recognize it as a template folder -->
+
+{%extends 'base.html'%} <!--like the head-->
+{% load static %} <!--
+like import static and we can put in one time on base.html but we don't for secure our website 
+-->
+
+{% block content %}
+<h1>template add student</h1>
+
+<a href="{% url 'student:allStudents' %}"> <!--NavigateTo ps : it works on autonomous url not on replit mini browser-->
+  All Student 
+</a>
+<br>
+<img src="{%static 'paris.jpg'%}">
+{#didn't work #}
+
+{% endblock%}
+
+

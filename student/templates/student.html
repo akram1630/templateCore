@@ -1,0 +1,87 @@
+<!-- name of folder must be 'templates'
+  to recognize it as a template folder -->
+
+{%extends 'base.html'%}
+
+{% block content %}
+
+<h1>template HOME all students</h1>
+<h1>first name is : {{fname}}</h1>
+<h1>last  name is : {{lname}}</h1>
+
+<a href="{% url 'student:addStudent' %}">
+  Add Student 
+</a>
+<br>
+<a href="{% url 'student:editStudent' %}">
+  Edit Student 
+</a>
+<br>
+
+{#this is comment like <!--zefezf-->#}
+
+{{fname}} <!-- key of context=myVars-->
+<br>
+{{lname}}
+<br>
+{{mylist}}
+<br>
+{{mydict}}
+<br>
+
+{{smallWord | upper}} <!-- filter python function-->
+<br>
+{{fname | length}} <!-- filter python function-->
+<br>
+{{lname | capfirst}} <!-- filter python function-->
+<br>
+{{fname | lower | capfirst }} 
+<br>
+
+{% for item in mylist%} 
+{{item}} 
+<br>
+{%endfor%}
+<br>
+
+<ul>
+  {% for item in mylist%}
+  <li>
+      {{item}}
+  </li>
+  {%endfor%}
+</ul>
+<br>
+<ul>
+  {% for item in mydict %}
+  <li>
+      {{item}}
+  </li>
+  {%endfor%}
+</ul>
+<br>
+<ul>
+  {% for item in myEmptylist%}
+  <li>{{item}}</li>
+  {%empty%} <!-- if list=[] and also run if we don't even                 declare the variable myEmptylist -->
+  <li>there is no in this list</li>
+  {%endfor%}
+</ul>
+<br>
+{%if fname == 'Akram'%}
+{{fname}}
+{%endif%}
+<br>
+{%if fname == 'ramy'%}
+<h2>{welcome {fname}}</h2>
+{%else%}
+<h2>ur not akram : ur {{lname}} </h2>
+{%endif%}
+<br>
+{% endblock%}
+
+
+
+
+
+
